@@ -2,12 +2,43 @@
 <html>
 <head>
 	<title>Weather App ::</title>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.js"></script>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 </head>
 <body ng-app="weatherApp">
-
-
+	<div class="main" ng-controller="mainController">
+    	<div class="container">
+        	<div class="row">
+          		<div class="col-sm-5 col-sm-offset-7">
+            		<h1>{{ fiveDay.city_name }}</h1>
+            		<h2>5-day forecast</h2>
+            		<div class="forecast" ng-repeat="day in fiveDay.days">
+              			<div class="day row">
+                			<div class="weekday col-md-4">
+                  				<p>{{ day.datetime | date }}</p>
+                			</div>
+                			<div class="weather col-md-3">
+                  				<img ng-src="{{ day.icon }}">
+                			</div>
+                			<div class="weather col-md-1">
+                			</div>
+                			<div class="high col-md-2">
+                  				<p>{{ day.high }}&deg;</p>
+                			</div>
+                			<div class="low col-md-2">
+                  				<p>{{ day.low }}&deg;</p>
+                			</div>
+              			</div>
+            		</div>
+          		</div>
+    		</div>
+      	</div>
+    </div>
+<!--adding main app.js file-->
 <script type="text/javascript" src="assets/js/app.js"></script>
+<!--Adding Controller-->
+<script type="text/javascript" src="assets/js/controllers/mainController.js"></script>
+<!--Adding services for forecast-->
+<script type="text/javascript" src="assets/js/services/forecast.js"></script>
 </body>
 </html>
